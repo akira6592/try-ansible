@@ -8,9 +8,7 @@
 
 実際にネットワーク機器へのコンフィグ投入したい場合は、以下の3つのファイルを変更します。
 
-なお、ネットワーク機器側は予めSSHでログイオンできることが前提です。
-
-Playbook の実行コマンドは
+なお、ネットワーク機器側は予めSSHでログインできることが前提です。
 
 
 ### 1. 変数定義ファイル `group_vars/ios.yml`
@@ -40,6 +38,12 @@ ios01 ansible_host=172.16.0.254
 ### 3. Playbook `yml`
 実行しないための指定である `tags: never` の行を削除します。
 
+
+### Playbook の実行
+Playbook の実行コマンドは変更ありません。
+```
+ansible-playbook -i inventory.ini generate_config.yml
+```
 
 ## 参考資料
 - Ansible 公式ドキュメント: https://docs.ansible.com/ansible/latest/index.html
