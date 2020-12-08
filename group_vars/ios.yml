@@ -1,0 +1,5 @@
+---
+ansible_network_os: ios
+ansible_connection: network_cli
+ansible_user: xxx_dummy_user            # 要変更（特権ユーザー想定）
+ansible_password: xxx_dummy_password    # 要変更
