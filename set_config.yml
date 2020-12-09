@@ -1,21 +1,26 @@
 ---
-- hosts: ios
+- hosts: ios               # 対象のホスト名・グループ名（inventory.iniで定義）
   gather_facts: false
 
-  vars:
-    ntp_servers:
-      - 10.0.1.123
-      - 10.0.2.123
+  vars:           
+    ntp_servers:           # 設定する NTP サーバーのリスト
+      - 10.0.1.1
+      - 10.0.1.2
+    syslog_servers:
+      - 10.0.1.3
+      - 10.0.1.4
 
   tasks:
-    - name: generate config
-      copy:
-        content: "{{ lookup('template', 'config.j2') }}"
-        dest: config.txt
+    # コンフィグ生成タスク
+    - name: generate config   # タスクの名前
+      copy:                   # 使用するモジュール名
+        content: "{{ lookup('template', 'config.j2') }}"    # 元ネタテンプレートファイル名
+        dest: config.txt      # 生成先コンフィグファイル名
     
-    # このタスクはサンプルのため実行しない
-    - name: set config
-      ios_config:
-        src: config.txt
-      tags: never   # 実行しないための指定
+    # Cisco IOS ネットワーク機器に対してコンフィグを投入するタスク
+    # ※ただしサンプルのため実行しない
+    - name: set config        # タスクの名前
+      ios_config:             # 使用するモジュール名
+        src: config.txt       # コンフィグファイル名
+      tags: never             # 実行しないための指定
 
