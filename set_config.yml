@@ -2,13 +2,21 @@
 - hosts: ios               # 対象のホスト名・グループ名（inventory.iniで定義）
   gather_facts: false
 
-  vars:           
-    ntp_servers:           # 設定する NTP サーバーのリスト
+  vars:
+    # 設定するインターフェース
+    interfraces:
+      - name: GigabitEthernet1
+        address: 172.16.1.254
+        mask: 255.255.255.0
+        description: hogehoge1      # ★任意の値に修正する
+      - name: GigabitEthernet2
+        address: 172.16.2.254
+        mask: 255.255.255.0
+        description: hogehoge2
+    # 設定する Syslog サーバーのリスト
+    syslog_servers:
       - 10.0.1.1
       - 10.0.1.2
-    syslog_servers:
-      - 10.0.1.3
-      - 10.0.1.4
 
   tasks:
     # コンフィグ生成タスク

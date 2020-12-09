@@ -1,3 +1,11 @@
-{% for ntp in ntp_servers %}
-ntp server {{ ntp }}
+{% for i in interfraces %}
+interface {{ i.name }}
+ ip address {{ i.address }} {{ i.mask}}
+ description {{ i.description }}
+ no shutdown
+ 
+{% endfor %}
+
+{% for s in syslog_servers %}
+logging host {{ s }}
 {% endfor %}
