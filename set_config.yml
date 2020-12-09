@@ -1,0 +1,21 @@
+---
+- hosts: ios
+  gather_facts: false
+
+  vars:
+    ntp_servers:
+      - 10.0.1.123
+      - 10.0.2.123
+
+  tasks:
+    - name: generate config
+      copy:
+        content: "{{ lookup('template', 'config.j2') }}"
+        dest: config.txt
+    
+    # このタスクはサンプルのため実行しない
+    - name: set config
+      ios_config:
+        src: config.txt
+      tags: never   # 実行しないための指定
+
