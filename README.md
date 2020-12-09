@@ -2,17 +2,17 @@
 
 Ansible で、ネットワーク機器のコンフィグを生成する処理を体験してたいただきます。
 
-## 手順
+# 手順
 
-### 1. ログイン
-ご自身のパソコンから TeraTerm などのターミナルソフトを利用して、以下のサーバーにログインします。
+## 1. SSH ログイン
+ご自身のパソコンから TeraTerm などのターミナルソフトを利用して、以下のサーバーに SSH でログインします。
 
 IPアドレス: `TODO:（当日修正予定）`
 
 ※ ユーザー名とパスワードは当日講師からご連絡します。
 
 
-### 2.　Ansible 環境の有効化と作業ディレクトリの移動
+## 2.　Ansible 環境の有効化と作業ディレクトリの移動
 
 ログイン後、以下コマンドで、Ansible 環境を有効化します。
 
@@ -41,7 +41,7 @@ IPアドレス: `TODO:（当日修正予定）`
 ```
 
 
-### 3. Playbook の修正
+## 3. Playbook の修正（任意）
 
 処理の内容を定義した Playbook `set_config.yml` を修正します。
 
@@ -63,9 +63,18 @@ vi set_config.yml
         address: 172.16.1.254
         mask: 255.255.255.0
         description: hogehoge1      # ★任意の値に修正する
+      - name: GigabitEthernet2
+        address: 172.16.2.254
+        mask: 255.255.255.0
+        description: hogehoge2
+    # 設定する Syslog サーバーのリスト
+    syslog_servers:
+      - 10.0.1.1
+      - 10.0.1.2
 #...(略)...
 ```
 
+余裕がある方は、他の値（`: `の後ろ側は）も修正していただいても構いません。
 
 Playbook `set_config.yml` を修正後、ファイルを保存します。
 
@@ -87,7 +96,7 @@ logging host {{ s }}
 {% endfor %}
 ```
 
-### 4. Playbook の実行
+## 4. Playbook の実行
 
 以下のコマンドで、Playbook を実行します。
 
@@ -98,7 +107,7 @@ ansible-playbook -i inventory.ini set_config.yml
 以下のように、最後の行に `ok=1` が表示されたら成功です。
 
 ```sh
-(ansible) [centos@ip-x-x-x-x try-ansible]$ ansible-playbook -i inventory.ini generate_config.yml 
+(ansible) [centos@ip-x-x-x-x try-ansible]$ ansible-playbook -i inventory.ini set_config.yml 
 
 PLAY [ios] ******************************************************************************************
 
@@ -112,7 +121,7 @@ ios01        : ok=1    changed=0    unreachable=0    failed=0    skipped=0    re
 
 コンフィグファイル `config.txt` が生成されます。
 
-### 5. 実行結果の確認
+## 5. 実行結果の確認
 
 生成されたコンフィグファイル `config.txt` の内容を確認します。
 
