@@ -1,7 +1,7 @@
 {% for i in interfraces %}
 interface {{ i.name }}
- ip address {{ i.address }} {{ i.mask}}
  description {{ i.description }}
+ ip address {{ i.address }} {{ i.mask}}
  no shutdown
  
 {% endfor %}
