@@ -172,7 +172,6 @@ cat config.txt          # 任意のエディタでも構いません
 
 
 ## 参考資料
-<<<<<<< HEAD
 - [Ansible 公式ドキュメント](https://docs.ansible.com/ansible/latest/index.html) 
 - Ansible ではじめるネットワーク自動化（[資料](https://www.slideshare.net/akira6592/20208-beyond-ansible/akira6592/20208-beyond-ansible)・[動画](https://www.youtube.com/watch?v=qQaTi3WAUs8)）
 - [Katakoda Ansible 101など](https://www.katacoda.com/irixjp/)（ブラウザだけで体験できる学習コンテンツ）
@@ -180,7 +179,3 @@ cat config.txt          # 任意のエディタでも構いません
 
 ## Twitter
 [@akira6592](https://twitter.com/akira6592)
-=======
-- Ansible 公式ドキュメント: https://docs.ansible.com/ansible/latest/index.html
-- Ansible ではじめるネットワーク自動化:（[資料](https://www.slideshare.net/akira6592/20208-beyond-ansible/akira6592/20208-beyond-ansible)・[動画](https://www.youtube.com/watch?v=qQaTi3WAUs8)）
->>>>>>> b1c1562467cb41aff08c7527aae8dcd677191be1
