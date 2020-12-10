@@ -29,6 +29,19 @@ IPアドレス: `TODO:（当日修正予定）`
 (ansible) [centos@ip-x-x-x-x ~]$ 
 ```
 
+【参考】今回使用する Ansible のバージョンは、2.9.15 です。
+```sh
+# バージョン確認例
+(ansible) [student@ip-x-x-x-x ~]$ ansible --version
+ansible 2.9.15
+  config file = None
+  configured module search path = ['/home/student/.ansible/plugins/modules', '/usr/share/ansible/plugins/modules']
+  ansible python module location = /home/student/envs/ansible/lib64/python3.6/site-packages/ansible
+  executable location = /home/student/envs/ansible/bin/ansible
+  python version = 3.6.8 (default, Nov 16 2020, 16:55:22) [GCC 4.8.5 20150623 (Red Hat 4.8.5-44)]
+```
+
+
 次に、生徒ごとに用意された作業ディレクトリ（`~/studentXXX/try-ansible`）に移動します。
 
 `studnetXXX` の `XXX` 部分は、クラス番号1桁 + 学籍番号下2桁です。
@@ -52,7 +65,9 @@ IPアドレス: `TODO:（当日修正予定）`
 vi set_config.yml
 ```
 
-以下の `hogehoge1` の部分を任意の値に修正します。`description: hogehoge1` の `:` の後は半角スペースが必要な点に注意してください。
+以下の `hogehoge1` の部分を任意の値に修正します。`description: hogehoge1` のように、`:` の後はスペースが必要なのでご注意ください。
+
+【オプション課題】余裕がある方は、他の値（`: `の後ろ側は）も修正していただいても構いません。
 
 ```yaml
 #...(略)...
@@ -74,7 +89,15 @@ vi set_config.yml
 #...(略)...
 ```
 
-【オプション課題】余裕がある方は、他の値（`: `の後ろ側は）も修正していただいても構いません。
+【参考】Playbook は YAML というフォーマットで記述します。主な特徴は以下の通りです。
+
+- インデントのレベルが、データ構造のレベルを示す
+- インデントにスペースを使用する（タグは使用不可）
+- ディクショナリ（連想配列）は、`キー: バリュー` で定義
+- リスト（配列）は `-` で定義
+
+
+
 
 Playbook `set_config.yml` を修正後、ファイルを保存します。
 
@@ -104,7 +127,9 @@ logging host {{ s }}
 ansible-playbook -i inventory.ini set_config.yml
 ```
 
-以下のように、最後の行に `ok=1` が表示されたら成功です。
+`-i` オプションは、操作対象ホストを定義したインベントリファイルを指定します。
+
+実行した結果、以下のように最後の行に `ok=1` が表示されたら成功です。
 
 ```sh
 (ansible) [centos@ip-x-x-x-x try-ansible]$ ansible-playbook -i inventory.ini set_config.yml 
