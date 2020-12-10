@@ -36,7 +36,7 @@ IPアドレス: `TODO:（当日修正予定）`
 例: 1組の下2桁が `01`であれば `student101`
 
 ```sh
-(ansible) [centos@ip-172-31-5-153 ~]$ cd studentXXX/try-ansible/   # XXX は生徒ごとに異なる
+(ansible) [centos@ip-172-31-5-153 ~]$ cd ~/studentXXX/try-ansible/   # XXX は生徒ごとに異なる
 (ansible) [centos@ip-172-31-5-153 try-ansible]$
 ```
 
@@ -74,7 +74,7 @@ vi set_config.yml
 #...(略)...
 ```
 
-余裕がある方は、他の値（`: `の後ろ側は）も修正していただいても構いません。
+【オプション課題】余裕がある方は、他の値（`: `の後ろ側は）も修正していただいても構いません。
 
 Playbook `set_config.yml` を修正後、ファイルを保存します。
 
@@ -132,6 +132,8 @@ cat config.txt          # 任意のエディタでも構いません
 コンフィグファイルの内容が確認できれば作業完了です。
 
 
+【オプション課題】余裕がある方は、Playbook `set_config.yml` の他の箇所は、テンプレートファイル `config.j2` も修正して、Playbook を再実行していただいても構いません。
+
 # 補足
 
 ## その他の IOS モジュールについて
@@ -146,3 +148,4 @@ cat config.txt          # 任意のエディタでも構いません
 
 ## 参考資料
 - Ansible 公式ドキュメント: https://docs.ansible.com/ansible/latest/index.html
+- Ansible ではじめるネットワーク自動化:（[資料](https://www.slideshare.net/akira6592/20208-beyond-ansible/akira6592/20208-beyond-ansible)・[動画](https://www.youtube.com/watch?v=qQaTi3WAUs8)）
