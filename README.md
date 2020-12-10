@@ -92,7 +92,7 @@ vi set_config.yml
 【参考】Playbook は YAML というフォーマットで記述します。主な特徴は以下の通りです。
 
 - インデントのレベルが、データ構造のレベルを示す
-- インデントにスペースを使用する（タグは使用不可）
+- インデントにスペースを使用する（タブは使用不可）
 - ディクショナリ（連想配列）は、`キー: バリュー` で定義
 - リスト（配列）は `-` で定義
 
@@ -172,6 +172,7 @@ cat config.txt          # 任意のエディタでも構いません
 
 
 ## 参考資料
+<<<<<<< HEAD
 - [Ansible 公式ドキュメント](https://docs.ansible.com/ansible/latest/index.html) 
 - Ansible ではじめるネットワーク自動化（[資料](https://www.slideshare.net/akira6592/20208-beyond-ansible/akira6592/20208-beyond-ansible)・[動画](https://www.youtube.com/watch?v=qQaTi3WAUs8)）
 - [Katakoda Ansible 101など](https://www.katacoda.com/irixjp/)（ブラウザだけで体験できる学習コンテンツ）
@@ -179,3 +180,7 @@ cat config.txt          # 任意のエディタでも構いません
 
 ## Twitter
 [@akira6592](https://twitter.com/akira6592)
+=======
+- Ansible 公式ドキュメント: https://docs.ansible.com/ansible/latest/index.html
+- Ansible ではじめるネットワーク自動化:（[資料](https://www.slideshare.net/akira6592/20208-beyond-ansible/akira6592/20208-beyond-ansible)・[動画](https://www.youtube.com/watch?v=qQaTi3WAUs8)）
+>>>>>>> b1c1562467cb41aff08c7527aae8dcd677191be1
