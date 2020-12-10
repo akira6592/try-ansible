@@ -31,7 +31,7 @@ ansible_password: password
 ios01 ansible_host=172.16.0.254
 ```
 
-### 3. Playbook `yml`
+### 3. Playbook `set_config.yml`
 実行しないための指定である `tags: never` の行を削除します。
 
 
@@ -41,5 +41,3 @@ Playbook の実行コマンドは変更ありません。
 ansible-playbook -i inventory.ini set_config.yml
 ```
 
-## 参考資料
-- Ansible 公式ドキュメント: https://docs.ansible.com/ansible/latest/index.html
