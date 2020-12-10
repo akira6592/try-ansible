@@ -146,7 +146,20 @@ ios01        : ok=1    changed=0    unreachable=0    failed=0    skipped=0    re
 生成されたコンフィグファイル `config.txt` の内容を確認します。
 
 ```sh
-cat config.txt          # 任意のエディタでも構いません
+(ansible) [student@ip-172-31-7-67 try-ansible]$ catcat config.txt          # 任意のエディタでも構いません
+interface GigabitEthernet1
+ description CHANGED!!
+ ip address 172.16.1.254 255.255.255.0
+ no shutdown
+
+interface GigabitEthernet2
+ description hogehoge2
+ ip address 172.16.2.254 255.255.255.0
+ no shutdown
+
+
+logging host 10.0.1.1
+logging host 10.0.1.2
 ```
 
 コンフィグファイルの内容が確認できれば作業完了です。
